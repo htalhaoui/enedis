@@ -1,0 +1,13 @@
+grdf_back_office_security_login:
+    path:     /login
+    defaults: { _controller: GrdfBackOfficeBundle:Security:login }
+
+grdf_back_office_security_check:
+    path:     /login-check
+    defaults: { _controller: GrdfBackOfficeBundle:Security:check }
+    requirements:
+        _method: POST
+
+grdf_back_office_security_logout:
+    path:     /logout
+    defaults: { _controller: GrdfBackOfficeBundle:Security:logout }

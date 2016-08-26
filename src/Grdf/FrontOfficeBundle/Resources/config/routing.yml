@@ -1,0 +1,7 @@
+grdf_front_office_homepage:
+    path:     /
+    defaults: { _controller: GrdfFrontOfficeBundle:Default:index }
+
+# SECURITY
+grdf_front_office_security:
+    resource: "@GrdfFrontOfficeBundle/Resources/config/routing/security.yml"

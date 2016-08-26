@@ -1,0 +1,7 @@
+mission_missions:
+    resource: "@MissionBundle/Resources/config/routing/mission.yml"
+    prefix:   /missions
+
+mission_homepage:
+    path:     /missions
+    defaults: { _controller: MissionBundle:Default:index }

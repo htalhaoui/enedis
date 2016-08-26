@@ -1,0 +1,43 @@
+Grdf\MissionBundle\Entity\Mission:
+    type: entity
+    table: null
+    repositoryClass: Grdf\MissionBundle\Repository\MissionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        ville:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+        descriptif:
+            type: string
+            length: 255
+        photo:
+            type: string
+            length: 255
+        contact:
+            type: string
+            length: 255
+        dateDeCreation:
+            type: datetimetz
+            nullable: true
+        representantTerritorial:
+            type: string
+            length: 255
+        managerEnCharge:
+            type: string
+            length: 255
+            nullable: true
+        etat:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

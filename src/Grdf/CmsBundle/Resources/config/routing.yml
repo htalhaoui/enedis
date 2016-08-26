@@ -1,0 +1,7 @@
+grdf_cms_homepage:
+    path:     /
+    defaults: { _controller: GrdfCmsBundle:Default:index }
+
+grdf_cms_bundle_homepage:
+    path:     /
+    defaults: { _controller: GrdfCmsBundle:Default:index }

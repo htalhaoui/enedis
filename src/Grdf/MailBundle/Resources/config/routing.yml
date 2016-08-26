@@ -1,0 +1,11 @@
+mail_homepage:
+    path:     /
+    defaults: { _controller: MailBundle:Default:index }
+
+mail_homepage_redirection:
+    path:     /redirection
+    defaults: { _controller: MailBundle:Default:redirection }
+
+mail_homepage_sendMail:
+    path:     /sendMail
+    defaults: { _controller: MailBundle:Default:sendMail }

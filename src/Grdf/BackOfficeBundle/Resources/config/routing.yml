@@ -1,0 +1,11 @@
+grdf_back_office_homepage:
+    path:     /
+    defaults: { _controller: GrdfBackOfficeBundle:Default:index }
+
+# SECURITY
+grdf_back_office_security:
+    resource: "@GrdfBackOfficeBundle/Resources/config/routing/security.yml"
+
+# BACKOFFICE
+grdf_back_office_bo:
+    resource: "@GrdfBackOfficeBundle/Resources/config/routing/backoffice.yml"

@@ -1,0 +1,12 @@
+services:
+    user.form.profile.type:
+        class: Grdf\FrontOfficeBundle\Form\Type\ProfileType
+        parent: fos_user.profile.form.type
+        tags:
+            - { name: form.type, alias: grdf_fos_user_profile }
+
+    user.form.register.type:
+        class: Grdf\FrontOfficeBundle\Form\Type\RegisterType
+        parent: fos_user.registration.form.type
+        tags:
+            - { name: form.type, alias: grdf_fos_user_register }

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title> Contacter l'administrateur</title>
+</head>
+<form action="{{ path('mail_homepage_sendMail') }}" method="POST">
+
+    <h1>Contacter l'administrateur</h1>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h2>Titre du message:</h2>
+    <input type="text" name="Subject">
+    <br/>
+    <h2>Email:</h2>
+    <input type="text" name="email">
+    <br/>
+    <h2>Message:</h2>
+    <textarea name="message"></textarea>
+    <input type="submit" name="Send">
+</form>
+</html>

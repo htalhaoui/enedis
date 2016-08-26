@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mission</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mission.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ mission.titre }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ mission.ville }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ mission.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <td>{{ mission.descriptif }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ mission.photo }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ mission.contact }}</td>
+            </tr>
+            <tr>
+                <th>Datedecreation</th>
+                <td>{{ mission.dateDeCreation|date('d:m:y') }}</td>
+            </tr>
+            <tr>
+                <th>Representantterritorial</th>
+                <td>{{ mission.representantTerritorial }}</td>
+            </tr>
+            <tr>
+                <th>Managerencharge</th>
+                <td>{{ mission.managerEnCharge }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ mission.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('missions_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('missions_edit', { 'id': mission.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

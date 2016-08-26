@@ -1,0 +1,5 @@
+grdf_backofficebundle_home:
+    pattern: /
+    defaults: { _controller: "GrdfBackOfficeBundle:Default:index" }
+    requirements:
+        _method: GET

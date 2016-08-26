@@ -1,0 +1,7 @@
+grdf_main_admin_users:
+    resource: "@GrdfMainBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/users
+
+grdf_main_homepage:
+    path:     /
+    defaults: { _controller: GrdfMainBundle:Default:index }
