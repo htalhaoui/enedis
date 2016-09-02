@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 class RegisterType extends RegistrationFormType
 {
@@ -39,13 +42,21 @@ class RegisterType extends RegistrationFormType
                 'label' => 'profile.fields.managerAgence',
                 'translation_domain' => 'forms'
             ))
-            ->add('agence', 'text', array(
-                'label' => 'profile.fields.agence',
-                'translation_domain' => 'forms'
+            ->add('agence', EntityType::class, array(
+                'class' => 'GrdfMainBundle:Agence',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.name', 'ASC');
+                },
+                'choice_label' => 'name',
             ))
-            ->add('territoire', 'text', array(
-                'label' => 'profile.fields.territoire',
-                'translation_domain' => 'forms'
+           ->add('territoire', EntityType::class, array(
+                'class' => 'GrdfMainBundle:Territoire',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.name', 'ASC');
+                },
+                'choice_label' => 'name',
             ))
         ;
     }

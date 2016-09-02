@@ -23,6 +23,9 @@
                                 <a href="{{ path('fos_user_resetting_request') }}">
                                     <strong>{{ 'Mot de passe oublié'|trans }}</strong>
                                 </a>
+                                <a href="{{ path('fos_user_registration_register') }}">
+                                    <strong>{{ 'S\'inscrire'|trans }}</strong>
+                                </a>
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
                         </form>

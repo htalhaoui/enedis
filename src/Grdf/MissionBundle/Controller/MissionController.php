@@ -23,12 +23,41 @@ class MissionController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $missions = $em->getRepository('MissionBundle:Mission')->findAll();
-
         return $this->render('mission/index.html.twig', array(
             'missions' => $missions,
         ));
     }
 
+    public function enCoursAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $missions = $em->getRepository('MissionBundle:Mission')->findByEtat('en cours');
+        return $this->render('mission/missions-en-cours.html.twig', array(
+            'missions' => $missions,
+        ));
+    }
+
+    public function termineAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $missions = $em->getRepository('MissionBundle:Mission')->findByEtat('terminé');
+        return $this->render('mission/missions-termine.html.twig', array(
+            'missions' => $missions,
+        ));
+    }
+
+    public function enAttenteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $missions = $em->getRepository('MissionBundle:Mission')->findByEtat('en attente');
+        return $this->render('mission/missions-en-attente.html.twig', array(
+            'missions' => $missions,
+        ));
+    }
+    
     /**
      * Creates a new Mission entity.
      *

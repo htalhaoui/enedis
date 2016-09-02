@@ -22,3 +22,18 @@ missions_delete:
     path:     /{id}/delete
     defaults: { _controller: "MissionBundle:Mission:delete" }
     methods:  DELETE
+
+missions_en_cours:
+    path:     /en-cours
+    defaults: { _controller: "MissionBundle:Mission:enCours" }
+    methods:  GET
+
+missions_termine:
+    path:     /termine
+    defaults: { _controller: "MissionBundle:Mission:termine" }
+    methods:  GET
+
+missions_en_attente:
+    path:     /en-attente
+    defaults: { _controller: "MissionBundle:Mission:enAttente" }
+    methods:  GET
