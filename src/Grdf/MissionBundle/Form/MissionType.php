@@ -19,7 +19,7 @@ class MissionType extends AbstractType
             ->add('ville')
             ->add('adresse')
             ->add('descriptif')
-            ->add('photo', 'file')
+            ->add('photo', 'file', array('data_class' => null))
             ->add('contact')
             ->add('representantTerritorial')
             ->add('managerEnCharge')
