@@ -62,8 +62,7 @@ class ProfileController extends BaseController
             $user->setEmailCanonical($data['email']);
             $user->setPhone($data['phone']);
             $user->setAgence($data['agence']);
-            $user->setManagerAgence($data['managerAgence']);
-            $user->setRepresentantTerritorial($data['representantTerritorial']);
+            $user->setTypeCompte($data['typeCompte']);
             $user->setNni($data['nni']);
             $user->setPlainPassword($data['plainPassword']['first']);
 

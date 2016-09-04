@@ -8,6 +8,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        //$user=$this->container->get('security.context')->getToken()->getUser();
+
         return $this->render('GrdfMainBundle:Default:index.html.twig');
     }
 }

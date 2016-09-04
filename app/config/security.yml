@@ -4,8 +4,10 @@ security:
 
     role_hierarchy:
         ROLE_USER:        [ROLE_USER]
+        ROLE_REPRESENTANT_TERRITORIAL:        [ROLE_USER]    
+        ROLE_MANAGER_AGENCE:        [ROLE_USER]    
         ROLE_ADMIN:       [ROLE_ADMIN]
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH, ROLE_MANAGER_AGENCE, ROLE_REPRESENTANT_TERRITORIAL]
 
     providers:
         fos_userbundle:

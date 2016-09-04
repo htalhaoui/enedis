@@ -11,7 +11,9 @@ profile:
         territoire: Territoire
         password_first: Mot de passe
         password_second: Mot de passe (validation)
+        roles: Type de compte
+
 register:
     fields:
         firstname: Nom
-
+        roles: Type de compte

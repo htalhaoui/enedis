@@ -10,3 +10,13 @@ fos_user_profile_edit:
     defaults: { _controller: FOSUserBundle:Profile:edit }
     requirements:
       _method: GET|POST
+      
+fos_user_registration_confirm:
+    pattern: /confirm/{token}
+    defaults: { _controller: GrdfFrontOfficeBundle:Registration:confirm }
+    requirements:
+      _method: GET
+   
+fos_user_registration_register":
+    pattern: /
+    defaults: { _controller: GrdfFrontOfficeBundle:Registration:register }

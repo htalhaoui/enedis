@@ -33,11 +33,25 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('missions_index') }}">Mes demandes</a></li>
-                <li><a href="{{ path('missions_index') }}">Toutes les demandes</a></li>
+                {% if is_granted('ROLE_REPRESENTANT_TERRITORIAL') %}
+                <li><a href="{{ path('missions_index') }}">Mes missions</a></li>
+                <li><a href="{{ path('missions_index') }}">Toutes les missions de mon territoire</a></li>
                 <li><a href="{{ path('missions_index') }}">Statistiques</a></li>
                 <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
                 <li><a href="{{ path('mail_homepage_sendMail') }}">Contacter l'administrateur</a></li>
+                {% elseif is_granted('ROLE_MANAGER_AGENCE') %}
+                <li><a href="{{ path('missions_index') }}">Les missions en attente</a></li>
+                <li><a href="{{ path('missions_index') }}">Mes missions en cours</a></li>
+                <li><a href="{{ path('missions_index') }}">Mes missions terminées</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+                <li><a href="{{ path('mail_homepage_sendMail') }}">Contacter l'administrateur</a></li>
+                {% elseif (is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN')) %}
+                <li><a href="{{ path('missions_index') }}">Validation</a></li>
+                <li><a href="{{ path('missions_index') }}">Les missions en attente</a></li>
+                <li><a href="{{ path('missions_index') }}">Les missions en cours</a></li>
+                <li><a href="{{ path('missions_index') }}">Les missions terminées</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}">Mon profil</a></li>
+                {% endif %}
             </ul>
         </div><!--/.nav-collapse -->
     </div>

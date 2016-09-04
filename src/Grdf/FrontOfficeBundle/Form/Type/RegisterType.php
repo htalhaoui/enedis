@@ -34,14 +34,68 @@ class RegisterType extends RegistrationFormType
                 'label' => 'profile.fields.phone',
                 'translation_domain' => 'forms'
             ))
-            ->add('representantTerritorial', 'checkbox', array(
-                'label' => 'profile.fields.representantTerritorial',
+            /*->add('typeCompte', 'checkbox', array(
+                'label' => 'profile.fields.typeCompte',
                 'translation_domain' => 'forms'
-            ))
-            ->add('managerAgence', 'checkbox', array(
+            ))*/
+            /*->add('roles', ChoiceType::class, array(
+                'choices'  => array(
+                     'representantTerritorial' => 'Representant territorial' ,
+                     'managerAgence' => 'Manager d\'agence',
+                ),
+            ))*/           
+          
+                
+          
+             /* ->add('roles', 'choice', 
+               array('choices' => array('ROLE_REPRESENTANT_TERRITORIAL' => "Representant territorial", 
+               'ROLE_MANAGER_AGENCE' => "Manager d\'agence"),
+
+                                    'multiple' => false,
+                                    'expanded' => true,
+                                    'required' => true,
+                                    'data' => 1)                
+            )  
+            */
+        ->add('roles', 'collection', array(
+            'type'   => 'choice',
+            'options'  => array(
+                'label' => false,
+                'expanded' => true,
+                'choices'  => array(
+                    'ROLE_REPRESENTANT_TERRITORIAL' => "Representant territorial", 
+               'ROLE_MANAGER_AGENCE' => "Manager d\'agence",
+                ),
+            ),
+            
+    ))
+          /*
+            ->add('roles', 'collection', array(
+                   'type' => 'choice',
+                   'options' => array(
+                       'label' => false, 
+                       'choices' => array(
+                           'ROLE_REPRESENTANT_TERRITORIAL' => 'Representant territorial' ,
+                            'ROLE_MANAGER_AGENCE' => 'Manager d\'agence'
+                       ),
+                   )
+               )
+           )
+            
+           
+           */ 
+        /*        
+           ->add('role', 'choice', array(
+            'choices' => array(
+                'ROLE_REPRESENTANT_TERRITORIAL' => 'Representant territorial', 
+                'ROLE_MANAGER_AGENCE' => 'Manager d\'agence'),
+               'multiple' => true,
+            'expanded' => true
+        ))*/
+           /* ->add('managerAgence', 'checkbox', array(
                 'label' => 'profile.fields.managerAgence',
                 'translation_domain' => 'forms'
-            ))
+            ))*/
             ->add('agence', EntityType::class, array(
                 'class' => 'GrdfMainBundle:Agence',
                 'query_builder' => function (EntityRepository $er) {
@@ -59,6 +113,8 @@ class RegisterType extends RegistrationFormType
                 'choice_label' => 'name',
             ))
         ;
+                
+                
     }
 
     public function configureOptions(OptionsResolver $resolver)

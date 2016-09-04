@@ -6,10 +6,12 @@ profile:
         email: E-mail
         password_first: Mot de passe
         password_second: Mot de passe (validation)
+        roles: Type de compte
 
 register:
     fields:
         firstname: Nom
+        roles: Type de compte
 
 # Resetting account
 resetting:
@@ -23,6 +25,7 @@ resetting:
 # Registration
 registration:
     confirmed: Votre compte est maintenant activé.
+    roles: Type de compte
     email:
         subject: |
             Confirmation de l'inscription

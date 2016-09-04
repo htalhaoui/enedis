@@ -17,6 +17,8 @@ class User extends BaseUser
     const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_USER = 'ROLE_USER';
+    const ROLE_REPRESENTANT_TERRITORIAL = 'ROLE_REPRESENTANT_TERRITORIAL';
+    const ROLE_MANAGER_AGENCE = 'ROLE_MANAGER_AGENCE';
 
     /**
      * @var integer
@@ -59,16 +61,9 @@ class User extends BaseUser
     /**
      * @var
      *
-     * @ORM\Column(name="representantTerritorial", type="boolean", nullable=true, nullable=true)
+     * @ORM\Column(name="typeCompte", type="string", nullable=true, nullable=true)
      */
-    protected $representantTerritorial;
-
-    /**
-     * @var
-     *
-     * @ORM\Column(name="managerAgence", type="boolean", nullable=true, nullable=true)
-     */
-    protected $managerAgence;
+   // protected $typeCompte;
 
     /**
      * @var
@@ -119,41 +114,26 @@ class User extends BaseUser
     /**
      * @return mixed
      */
-    public function getManagerAgence()
+/*    public function getTypeCompte()
     {
-        return $this->managerAgence;
+        return $this->typeCompte;
     }
-
+*/
     /**
-     * @param mixed $managerAgence
+     * @param mixed $typeCompte
      */
-    public function setManagerAgence($managerAgence)
+   /* public function setTypeCompte($typeCompte)
     {
-        $this->managerAgence = $managerAgence;
+        $this->typeCompte = $typeCompte;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getRepresentantTerritorial()
-    {
-        return $this->representantTerritorial;
-    }
-
-    /**
-     * @param mixed $representantTerritorial
-     */
-    public function setRepresentantTerritorial($representantTerritorial)
-    {
-        $this->representantTerritorial = $representantTerritorial;
-    }
-
+*/
     /**
      * @return mixed
      */
     public function getNni()
     {
         return $this->nni;
+        
     }
 
     /**
@@ -175,6 +155,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->s = new ArrayCollection();
+        $this->setEnabled(false);
     }
 
     /**
@@ -229,7 +210,7 @@ class User extends BaseUser
      * @param mixed $phone
      */
     public function setPhone($phone)
-    {
+    {       
         $this->phone = $phone;
     }
 
@@ -240,4 +221,31 @@ class User extends BaseUser
     {
         return $this->phone;
     }
+    
+    /* public function getDoneRole()
+    {
+            $message1='voila';
+
+                echo '<script type="text/javascript">window.alert("'.$message1.'");</script>';  
+            if(strcmp ($this->typeCompte, 'managerAgence') == 0 )
+            {
+                $message='managerAgence';
+
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';  
+                $this->addRole('MANAGER_AGENCE');
+                $em = $this->getDoctrine()->getManager();
+            $em->persist($this);
+            $em->flush();   
+            }
+            else if(strcmp ($this->typeCompte, 'representantTerritorial') == 0 )
+            {
+                $message='representantTerritorial';
+
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';  
+                $this->addRole('ROLE_REPRESENTANT_TERRITORIAL');
+                $em = $this->getDoctrine()->getManager();
+            $em->persist($this);
+            $em->flush();   
+            } 
+    }*/
 }

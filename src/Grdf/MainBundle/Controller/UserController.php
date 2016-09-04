@@ -37,13 +37,16 @@ class UserController extends Controller
     {
         $user = new User();
         $form = $this->createForm('Grdf\MainBundle\Form\UserType', $user);
+        
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+                        
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush();
-
+            $em->flush();          
+            
             return $this->redirectToRoute('admin_users_show', array('id' => $user->getId()));
         }
 

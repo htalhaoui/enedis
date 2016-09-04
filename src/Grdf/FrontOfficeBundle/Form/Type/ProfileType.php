@@ -32,14 +32,10 @@ class ProfileType extends ProfileFormType
                 'label' => 'profile.fields.email',
                 'translation_domain' => 'forms'
             ))
-            ->add('representantTerritorial', 'checkbox', array(
-                'label' => 'profile.fields.representantTerritorial',
+            /*->add('typeCompte', 'checkbox', array(
+                'label' => 'profile.fields.typeCompte',
                 'translation_domain' => 'forms'
-            ))
-            ->add('managerAgence', 'checkbox', array(
-                'label' => 'profile.fields.managerAgence',
-                'translation_domain' => 'forms'
-            ))
+            ))*/
             ->add('agence', 'text', array(
                 'label' => 'profile.fields.agence',
                 'translation_domain' => 'forms'
