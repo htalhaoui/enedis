@@ -4,7 +4,34 @@
 </head>
 <body>
 {% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
 
+    {% block stylesheets %}
+        {% stylesheets filter='cssrewrite'
+        '@GrdfFrontOfficeBundle/Resources/public/css/libs/jquery-ui.min.css'
+        '@GrdfFrontOfficeBundle/Resources/public/css/libs/jquery-ui.structure.min.css'
+        '@GrdfFrontOfficeBundle/Resources/public/css/libs/jquery.dataTables.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    {% endblock %}
+
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+
+
+<script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 </html>
