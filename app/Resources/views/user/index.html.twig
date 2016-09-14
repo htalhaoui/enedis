@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User list</h1>
+    <h1>Liste d'utilisateurs</h1>
 
     <table>
         <thead>
@@ -16,12 +16,16 @@
                 <td><a href="{{ path('admin_users_show', { 'id': user.id }) }}">{{ user.nni }}</a></td>
                 <td>
                     <ul>
+                        {% if user.isEnabled() %}
                         <li>
-                            <a href="{{ path('admin_users_show', { 'id': user.id }) }}">show</a>
+                            <a href="{{ path('admin_users_activate', { 'id': user.id }) }}">Desactiver</a>
                         </li>
+                        {% endif %}
+                        {% if user.isEnabled()==false %}
                         <li>
-                            <a href="{{ path('admin_users_edit', { 'id': user.id }) }}">edit</a>
+                            <a href="{{ path('admin_users_activate', { 'id': user.id }) }}">Activer</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
@@ -31,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('admin_users_new') }}">Create a new entry</a>
+            <a href="{{ path('admin_users_new') }}">Ajouter un utilisateur</a>
         </li>
     </ul>
 {% endblock %}

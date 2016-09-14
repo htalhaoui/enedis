@@ -22,3 +22,8 @@ admin_users_delete:
     path:     /{id}/delete
     defaults: { _controller: "GrdfMainBundle:User:delete" }
     methods:  DELETE
+
+admin_users_activate:
+    path:     /{id}/activate
+    defaults: { _controller: "GrdfMainBundle:User:activate" }
+    methods:  [GET, POST]

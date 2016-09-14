@@ -18,4 +18,19 @@ class UserType extends AbstractType
             'data_class' => 'Grdf\MainBundle\Entity\User'
         ));
     }
+    
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+       /* $builder
+            ->add('lastname')
+            ->add('id')
+      
+        ;
+        
+        */
+    }
 }

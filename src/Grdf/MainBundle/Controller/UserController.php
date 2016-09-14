@@ -128,4 +128,25 @@ class UserController extends Controller
             ->getForm()
         ;
     }
+    
+    public function activateAction(Request $request, User $user)
+    {
+        if($user->isEnabled())
+        {
+            $user->setEnabled(0);
+        }
+        else if(!$user->isEnabled())
+        {
+            $user->setEnabled(1);
+        }
+        
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('GrdfMainBundle:User')->findAll();
+        $em->persist($user);
+        $em->flush();
+        
+        return $this->render('user/index.html.twig', array(
+            'users' => $users,
+        ));
+    }
 }
